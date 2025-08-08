@@ -83,22 +83,15 @@ with col1:
         type=['png', 'jpg', 'jpeg'],
         help="Hỗ trợ định dạng: PNG, JPG, JPEG"
     )
-
-with col2:
-    st.header("📊 Kết Quả Phát Hiện")
     
+    # Hiển thị thông tin phát hiện ở bên trái
     if uploaded_file is not None:
-        # Xử lý file upload
-        image = Image.open(uploaded_file)
-        st.image(image, caption="Ảnh gốc", use_container_width=True)
-        
         # Phát hiện đối tượng
         with st.spinner("Đang phát hiện đối tượng..."):
+            image = Image.open(uploaded_file)
             annotated_image, detections = detect_objects(image, model, confidence_threshold)
             
             if annotated_image is not None:
-                st.image(annotated_image, caption="Ảnh sau phát hiện", use_container_width=True)
-                
                 # Hiển thị thông tin phát hiện
                 if detections is not None and len(detections) > 0:
                     st.success(f"Phát hiện được {len(detections)} đối tượng!")
@@ -118,6 +111,24 @@ with col2:
                     st.dataframe(detection_info, use_container_width=True)
                 else:
                     st.warning("Không phát hiện được đối tượng nào với ngưỡng tin cậy hiện tại.")
+    
+    else:
+        st.info("👆 Vui lòng tải ảnh lên để bắt đầu phát hiện đối tượng")
+
+with col2:
+    st.header("📊 Kết Quả Phát Hiện")
+    
+    if uploaded_file is not None:
+        # Xử lý file upload
+        image = Image.open(uploaded_file)
+        st.image(image, caption="Ảnh gốc", use_container_width=True)
+        
+        # Phát hiện đối tượng
+        with st.spinner("Đang phát hiện đối tượng..."):
+            annotated_image, detections = detect_objects(image, model, confidence_threshold)
+            
+            if annotated_image is not None:
+                st.image(annotated_image, caption="Ảnh sau phát hiện", use_container_width=True)
     
     else:
         st.info("👆 Vui lòng tải ảnh lên để bắt đầu phát hiện đối tượng")
