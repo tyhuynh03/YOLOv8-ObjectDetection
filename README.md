@@ -48,6 +48,25 @@ streamlit run app.py
 
 Ứng dụng sẽ mở tại: `http://localhost:8501`
 
+## 📸 Demo Kết Quả
+
+### Ví dụ phát hiện đối tượng:
+
+![Demo 1](result/result1.jpg)
+*Phát hiện xe bus và ô tô với độ tin cậy cao*
+
+![Demo 2](result/result2.jpg)
+*Phát hiện người và các đối tượng khác*
+
+![Demo 3](result/result3.jpg)
+*Phát hiện xe cộ và giao thông*
+
+![Demo 4](result/result4.jpg)
+*Phát hiện đối tượng trong môi trường khác nhau*
+
+![Demo 5](result/result5.jpg)
+*Kết quả phát hiện với độ tin cậy cao*
+
 ## 📖 Hướng Dẫn Sử Dụng
 
 ### 1. Tải Ảnh Lên
@@ -120,7 +139,8 @@ YOLOv8_ObjectDetection/
 ├── requirements.txt    # Dependencies
 ├── README.md          # Hướng dẫn này
 ├── .gitignore         # File loại trừ Git
-└── images/            # Thư mục chứa ảnh demo (nếu có)
+├── images/            # Thư mục chứa ảnh test
+└── result/            # Thư mục chứa ảnh kết quả demo
 ```
 
 ## 🤝 Đóng Góp
